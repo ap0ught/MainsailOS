@@ -106,6 +106,7 @@ You can still SSH into your system even with kiosk mode active. The kiosk mode o
 
 ## Related Resources
 
+- [Security Considerations](KIOSK_MODE_SECURITY.md) - Important security information about kiosk mode
 - Original inspiration: [Display Mainsail instead of KlipperScreen](https://github.com/Contrasens/VCore3-400-OpenFront/blob/main/Display_Mainsail_instead_of_KlipperScreen.md)
 - [Mainsail Documentation](https://docs.mainsail.xyz)
 - [MainsailOS Documentation](https://docs-os.mainsail.xyz)
