@@ -72,7 +72,7 @@ xset -dpms
 xset s noblank
 
 # Hide mouse cursor when idle
-unclutter -idle 0.1 &
+unclutter -idle 3 &
 
 # Start openbox window manager
 openbox &
@@ -119,6 +119,7 @@ echo "Configuring conditional auto-start of X server"
 # Add conditional startx to .bash_profile - only starts if display is detected
 cat >> /home/${BASE_USER}/.bash_profile << 'EOF'
 
+# START MAINSAILOS KIOSK MODE
 # Start X server automatically on tty1 for kiosk mode if display is available
 if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
     # Check if a display is connected before starting X
@@ -126,6 +127,7 @@ if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
         startx
     fi
 fi
+# END MAINSAILOS KIOSK MODE
 EOF
 
 chown ${BASE_USER}:${BASE_USER} /home/${BASE_USER}/.bash_profile
@@ -137,11 +139,11 @@ chown ${BASE_USER}:${BASE_USER} /home/${BASE_USER}/.bash_profile
 echo "Creating kiosk mode helper scripts"
 
 # Create disable-kiosk script for users who want to disable auto-start
-cat > /usr/local/bin/disable-kiosk << 'DISABLE_EOF'
+cat > /usr/local/bin/disable-kiosk << DISABLE_EOF
 #!/bin/bash
 # Disable automatic kiosk mode startup for MainsailOS
 
-BASE_USER="pi"
+BASE_USER="${BASE_USER}"
 
 echo "Disabling automatic kiosk mode startup..."
 
@@ -150,8 +152,9 @@ rm -f /etc/systemd/system/getty@tty1.service.d/autologin.conf
 rmdir /etc/systemd/system/getty@tty1.service.d 2>/dev/null || true
 
 # Remove X autostart from .bash_profile
-if [ -f /home/${BASE_USER}/.bash_profile ]; then
-    sed -i '/# Start X server automatically on tty1 for kiosk mode/,/^fi$/d' /home/${BASE_USER}/.bash_profile
+if [ -f /home/\${BASE_USER}/.bash_profile ]; then
+    # Use a more specific marker-based removal
+    sed -i '/^# START MAINSAILOS KIOSK MODE$/,/^# END MAINSAILOS KIOSK MODE$/d' /home/\${BASE_USER}/.bash_profile
 fi
 
 systemctl daemon-reload
