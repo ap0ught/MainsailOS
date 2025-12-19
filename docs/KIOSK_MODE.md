@@ -61,6 +61,8 @@ For example, you can:
 - Add or remove Chromium flags
 - Adjust the startup delay
 
+Note: The script automatically detects whether to use `chromium` or `chromium-browser` depending on your system.
+
 ### Autologin Configuration
 
 The autologin configuration is stored in:
