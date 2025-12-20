@@ -68,6 +68,9 @@ configurations designed to streamline your setup process.
 -   **Katapult Support:** The `python3-serial` package is included, which is a
     necessary dependency for flashing firmware via
     [Katapult (formerly CanBoot)](https://github.com/Arksine/katapult).
+-   **Kiosk Mode for Touch Displays:** Built-in support for automatically
+    displaying the Mainsail interface in kiosk mode on connected touch displays.
+    See [docs/KIOSK_MODE.md](docs/KIOSK_MODE.md) for details.
 
 ## Support the Mainsail-Crew
 
