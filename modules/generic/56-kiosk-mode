@@ -124,7 +124,7 @@ cat >> /home/${BASE_USER}/.bash_profile << 'EOF'
 
 # START MAINSAILOS KIOSK MODE
 # Start X server automatically on tty1 for kiosk mode if display is available
-if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
+if [ -z "$DISPLAY" ] && tty 2>/dev/null | grep -q '^/dev/tty1$'; then
     # Check if a display is connected before starting X
     if [ -e /dev/fb0 ] || [ -d /sys/class/drm/card0 ]; then
         startx
