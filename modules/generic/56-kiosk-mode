@@ -104,8 +104,10 @@ fi
     --disk-cache-size=52428800 \
     http://localhost &
 
-# Keep the X session alive
+# Keep the X session alive until Chromium exits.
+# Note: closing Chromium (or if it crashes) will terminate the kiosk X session.
 wait
+echo "Chromium has exited; ending kiosk X session." >&2
 EOF
 
 chmod +x /home/${BASE_USER}/.xinitrc
