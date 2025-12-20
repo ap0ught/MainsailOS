@@ -77,7 +77,7 @@ The autologin configuration is stored in:
 If you see a black screen:
 
 1. Check if Mainsail is accessible from another device at `http://<your-pi-ip>`
-2. Try SSHing in and checking X server logs: `cat /home/pi/.local/share/xorg/Xorg.0.log`
+2. Try SSHing in and checking X server logs: `cat ~/.local/share/xorg/Xorg.0.log` (or `sudo cat /var/log/Xorg.0.log` on some systems)
 3. Verify Chromium is running: `ps aux | grep chromium`
 
 ### Browser Shows Error Page
