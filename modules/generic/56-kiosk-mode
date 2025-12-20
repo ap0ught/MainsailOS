@@ -128,7 +128,7 @@ cat >> /home/${BASE_USER}/.bash_profile << 'EOF'
 # Start X server automatically on tty1 for kiosk mode if display is available
 if [ -z "$DISPLAY" ] && tty 2>/dev/null | grep -q '^/dev/tty1$'; then
     # Check if a display is connected before starting X
-    if [ -e /dev/fb0 ] || [ -d /sys/class/drm/card0 ]; then
+    if [ -e /dev/fb0 ] || ls /sys/class/drm/card* >/dev/null 2>&1; then
         startx
     fi
 fi
