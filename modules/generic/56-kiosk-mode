@@ -101,6 +101,7 @@ fi
     --disable-translate \
     --disable-features=TranslateUI \
     --disk-cache-dir=/tmp/chromium-cache \
+    --disk-cache-size=52428800 \
     http://localhost &
 
 # Keep the X session alive
