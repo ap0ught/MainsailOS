@@ -101,6 +101,8 @@ fi
     --disable-translate \
     --disable-features=TranslateUI \
     --disk-cache-dir=/tmp/chromium-cache \
+    --force-device-scale-factor=1 \
+    --touch-events=enabled \
     --disk-cache-size=52428800 \
     http://localhost &
 
