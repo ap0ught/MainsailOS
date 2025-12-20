@@ -91,7 +91,7 @@ else
 fi
 
 # Start chromium in kiosk mode pointing to local Mainsail
-$CHROMIUM_CMD \
+"$CHROMIUM_CMD" \
     --kiosk \
     --noerrdialogs \
     --disable-infobars \
