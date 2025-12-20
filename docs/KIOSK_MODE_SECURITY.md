@@ -13,9 +13,10 @@ The kiosk mode implementation has been designed with security in mind while bala
 
 ### 2. Autologin Limited to Physical Console
 - Autologin is configured only for tty1 (physical display)
+- Other local virtual terminals (tty2–tty6) still present the standard login prompt and require authentication
 - SSH access still requires authentication
 - Serial console access still requires authentication
-- Only affects users with physical access to the device
+- Autologin only affects users on the physical tty1 console; all other access paths require login credentials
 
 ### 3. No Credential Exposure
 - No passwords or API keys are hardcoded in the scripts
